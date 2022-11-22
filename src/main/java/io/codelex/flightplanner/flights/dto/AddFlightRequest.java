@@ -1,10 +1,10 @@
-package io.codelex.flightplanner.flights.domain;
+package io.codelex.flightplanner.flights.dto;
+
+import io.codelex.flightplanner.flights.domain.Airport;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class AddFlightRequest {

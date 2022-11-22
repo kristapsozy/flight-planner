@@ -1,7 +1,11 @@
 package io.codelex.flightplanner.flights.inmemory;
 
 import io.codelex.flightplanner.flights.FlightService;
-import io.codelex.flightplanner.flights.domain.*;
+import io.codelex.flightplanner.flights.domain.Airport;
+import io.codelex.flightplanner.flights.domain.Flight;
+import io.codelex.flightplanner.flights.dto.AddFlightRequest;
+import io.codelex.flightplanner.flights.dto.PageResult;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +22,7 @@ public class FlightInMemoryService implements FlightService {
     private long flightIdGeneratorBase = 100000;
     private int pageResultCounter = 0;
 
-    private FlightInMemoryRepository flightRepository;
+    private final FlightInMemoryRepository flightRepository;
 
     public FlightInMemoryService(FlightInMemoryRepository flightRepository) {
         this.flightRepository = flightRepository;

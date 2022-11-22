@@ -1,6 +1,10 @@
 package io.codelex.flightplanner.flights;
 
-import io.codelex.flightplanner.flights.domain.*;
+import io.codelex.flightplanner.flights.domain.Airport;
+import io.codelex.flightplanner.flights.domain.Flight;
+import io.codelex.flightplanner.flights.dto.AddFlightRequest;
+import io.codelex.flightplanner.flights.dto.PageResult;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 
 import java.util.List;
 
@@ -24,13 +28,13 @@ public interface FlightService {
 
     Airport findAirport(String search);
 
-    public boolean isFlightRequestDuplicated(AddFlightRequest request);
+    boolean isFlightRequestDuplicated(AddFlightRequest request);
 
-    public boolean isDatesNotCorrect(AddFlightRequest request);
+    boolean isDatesNotCorrect(AddFlightRequest request);
 
-    public boolean isAirportsTheSame(AddFlightRequest request);
+    boolean isAirportsTheSame(AddFlightRequest request);
 
-    public Flight createFlightFromRequest(AddFlightRequest request);
+    Flight createFlightFromRequest(AddFlightRequest request);
 }
 
 

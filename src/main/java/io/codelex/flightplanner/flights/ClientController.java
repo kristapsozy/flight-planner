@@ -2,8 +2,8 @@ package io.codelex.flightplanner.flights;
 
 import io.codelex.flightplanner.flights.domain.Airport;
 import io.codelex.flightplanner.flights.domain.Flight;
-import io.codelex.flightplanner.flights.domain.PageResult;
-import io.codelex.flightplanner.flights.domain.SearchFlightRequest;
+import io.codelex.flightplanner.flights.dto.PageResult;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 import io.codelex.flightplanner.flights.inmemory.FlightInMemoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ import java.util.List;
 @Validated
 public class ClientController {
 
-    private FlightService flightService;
+    private final FlightService flightService;
 
     public ClientController(FlightInMemoryService flightService) {
         this.flightService = flightService;
@@ -29,8 +29,8 @@ public class ClientController {
     @GetMapping("/airports")
     public synchronized ResponseEntity<List<Airport>> searchAirports(@RequestParam String search) {
         Airport airport = flightService.findAirport(search);
-        List<Airport> airportList = new ArrayList<>();
         if (airport != null) {
+            List<Airport> airportList = new ArrayList<>();
             airportList.add(airport);
             return new ResponseEntity<>(airportList, HttpStatus.OK);
         }

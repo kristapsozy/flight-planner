@@ -1,7 +1,7 @@
 package io.codelex.flightplanner.flights;
 
-import io.codelex.flightplanner.flights.domain.AddFlightRequest;
 import io.codelex.flightplanner.flights.domain.Flight;
+import io.codelex.flightplanner.flights.dto.AddFlightRequest;
 import io.codelex.flightplanner.flights.inmemory.FlightInMemoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @Validated
 public class AdminController {
 
-    FlightService flightService;
+    private final FlightService flightService;
 
     public AdminController(FlightInMemoryService flightService) {
         this.flightService = flightService;

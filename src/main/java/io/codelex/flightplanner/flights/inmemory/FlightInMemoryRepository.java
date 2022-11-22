@@ -3,12 +3,13 @@ package io.codelex.flightplanner.flights.inmemory;
 import io.codelex.flightplanner.flights.FlightRepository;
 import io.codelex.flightplanner.flights.domain.Airport;
 import io.codelex.flightplanner.flights.domain.Flight;
-import io.codelex.flightplanner.flights.domain.SearchFlightRequest;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Stream;
 
 
 @Repository
@@ -27,20 +28,8 @@ public class FlightInMemoryRepository implements FlightRepository {
 
     public Airport searchAirports(String search) {
         String lowerCaseSearch = search.trim().toLowerCase();
-        Flight ifFoundInGetToAirport = flightList.stream().filter(flight ->
-                flight.getTo().getAirport().toLowerCase().contains(lowerCaseSearch) ||
-                        flight.getTo().getCountry().toLowerCase().contains(lowerCaseSearch) ||
-                        flight.getTo().getCity().toLowerCase().contains(lowerCaseSearch)).findFirst().orElse(null);
-        Flight ifFoundInGetFromAirport = flightList.stream().filter(flight ->
-                flight.getFrom().getAirport().toLowerCase().contains(lowerCaseSearch) ||
-                        flight.getFrom().getCountry().toLowerCase().contains(lowerCaseSearch) ||
-                        flight.getFrom().getCity().toLowerCase().contains(lowerCaseSearch)).findFirst().orElse(null);
-        if (ifFoundInGetToAirport != null) {
-            return ifFoundInGetToAirport.getTo();
-        } else if (ifFoundInGetFromAirport != null) {
-            return ifFoundInGetFromAirport.getFrom();
-        }
-        return null;
+        return flightList.stream().flatMap(flight -> Stream.of(flight.getFrom(), flight.getTo())).distinct()
+                .filter(airport -> airport.airportInfoContains(lowerCaseSearch)).findFirst().orElse(null);
     }
 
     public void clearFlightsList() {

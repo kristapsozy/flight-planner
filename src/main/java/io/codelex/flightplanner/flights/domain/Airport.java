@@ -20,6 +20,12 @@ public class Airport {
     public Airport() {
     }
 
+    public boolean airportInfoContains(String text) {
+        return country.toLowerCase().contains(text) ||
+                city.toLowerCase().contains(text) ||
+                airport.toLowerCase().contains(text);
+    }
+
     public String getCountry() {
         return country;
     }

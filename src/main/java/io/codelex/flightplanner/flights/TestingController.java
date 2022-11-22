@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestingController {
 
-    private FlightService flightService;
+    private final FlightService flightService;
 
     public TestingController(FlightInMemoryService flightService) {
         this.flightService = flightService;

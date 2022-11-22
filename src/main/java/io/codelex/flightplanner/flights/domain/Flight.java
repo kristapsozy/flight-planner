@@ -37,11 +37,6 @@ public class Flight {
         return id;
     }
 
-    public long setId() {
-        return ++this.id;
-
-    }
-
     public Airport getFrom() {
         return from;
     }

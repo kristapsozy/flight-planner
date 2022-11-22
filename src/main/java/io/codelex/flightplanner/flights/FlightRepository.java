@@ -2,7 +2,7 @@ package io.codelex.flightplanner.flights;
 
 import io.codelex.flightplanner.flights.domain.Airport;
 import io.codelex.flightplanner.flights.domain.Flight;
-import io.codelex.flightplanner.flights.domain.SearchFlightRequest;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 
 import java.util.List;
 

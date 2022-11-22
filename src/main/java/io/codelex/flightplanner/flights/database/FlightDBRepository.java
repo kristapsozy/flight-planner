@@ -3,7 +3,7 @@ package io.codelex.flightplanner.flights.database;
 import io.codelex.flightplanner.flights.FlightRepository;
 import io.codelex.flightplanner.flights.domain.Airport;
 import io.codelex.flightplanner.flights.domain.Flight;
-import io.codelex.flightplanner.flights.domain.SearchFlightRequest;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
 

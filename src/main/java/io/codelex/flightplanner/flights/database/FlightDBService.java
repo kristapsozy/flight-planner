@@ -1,7 +1,11 @@
 package io.codelex.flightplanner.flights.database;
 
 import io.codelex.flightplanner.flights.FlightService;
-import io.codelex.flightplanner.flights.domain.*;
+import io.codelex.flightplanner.flights.domain.Airport;
+import io.codelex.flightplanner.flights.domain.Flight;
+import io.codelex.flightplanner.flights.dto.AddFlightRequest;
+import io.codelex.flightplanner.flights.dto.PageResult;
+import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
