@@ -74,7 +74,7 @@ public class FlightInMemoryService implements FlightService {
 
     @Override
     public Airport findAirport(String search) {
-        return flightRepository.searchAirports(search);
+        return flightRepository.searchAirports(search.trim());
     }
 
     @Override

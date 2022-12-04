@@ -1,4 +1,4 @@
-package io.codelex.flightplanner;
+package io.codelex.flightplanner.flights.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,11 +13,14 @@ public class SecurityConfiguration {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/h2-console/**").authenticated()
                 .antMatchers("/admin-api/**").authenticated()
                 .antMatchers("/testing-api/**").permitAll()
                 .antMatchers("/api/**").permitAll()
                 .and()
                 .httpBasic();
+
+        http.headers().frameOptions().disable();
 
         return http.build();
     }

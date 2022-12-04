@@ -1,6 +1,5 @@
 package io.codelex.flightplanner.flights.inmemory;
 
-import io.codelex.flightplanner.flights.FlightRepository;
 import io.codelex.flightplanner.flights.domain.Airport;
 import io.codelex.flightplanner.flights.domain.Flight;
 import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
@@ -14,7 +13,7 @@ import java.util.stream.Stream;
 
 @Repository
 @ConditionalOnProperty(prefix = "flightplanner", name = "appmode", havingValue = "inmemory")
-public class FlightInMemoryRepository implements FlightRepository {
+public class FlightInMemoryRepository {
 
     private List<Flight> flightList = new CopyOnWriteArrayList<>();
 

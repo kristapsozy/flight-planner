@@ -1,6 +1,5 @@
 package io.codelex.flightplanner.flights;
 
-import io.codelex.flightplanner.flights.inmemory.FlightInMemoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +12,7 @@ public class TestingController {
 
     private final FlightService flightService;
 
-    public TestingController(FlightInMemoryService flightService) {
+    public TestingController(FlightService flightService) {
         this.flightService = flightService;
     }
 
