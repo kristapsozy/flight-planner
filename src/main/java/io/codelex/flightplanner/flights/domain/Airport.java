@@ -1,14 +1,20 @@
 package io.codelex.flightplanner.flights.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
+@Entity
+@Table(name = "airports")
 public class Airport {
     @NotBlank
     private String country;
     @NotBlank
     private String city;
     @NotBlank
+    @Id
     private String airport;
 
     public Airport(String country, String city, String airport) {

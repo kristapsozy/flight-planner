@@ -4,7 +4,6 @@ import io.codelex.flightplanner.flights.domain.Airport;
 import io.codelex.flightplanner.flights.domain.Flight;
 import io.codelex.flightplanner.flights.dto.PageResult;
 import io.codelex.flightplanner.flights.dto.SearchFlightRequest;
-import io.codelex.flightplanner.flights.inmemory.FlightInMemoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -22,7 +21,7 @@ public class ClientController {
 
     private final FlightService flightService;
 
-    public ClientController(FlightInMemoryService flightService) {
+    public ClientController(FlightService flightService) {
         this.flightService = flightService;
     }
 
